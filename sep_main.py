@@ -43,43 +43,43 @@ model = model.to(device)
 sub_size_x = 10
 sub_size_y = 1000
 
-# # lyr = 1
-# # cnn_lyr_all_esr = cal_cnnlayer_esr(test_dataset, model, lyr = 1, subset_size_x = sub_size_x, subset_size_y = sub_size_y)
-# # print('cnn layer', lyr , 'class_esr:', cnn_lyr_all_esr)
+# lyr = 1
+# cnn_lyr_all_esr = cal_cnnlayer_esr(test_dataset, model, lyr = 1, subset_size_x = sub_size_x, subset_size_y = sub_size_y)
+# print('cnn layer', lyr , 'class_esr:', cnn_lyr_all_esr)
 
-# cnn_record = {}
-# for i in range(1, 6):
-#     cnn_lyr = i
-#     print('calculate cnn layer', cnn_lyr, 'ESR')
-#     cnn_lyr_esr = cal_cnnlayer_esr(test_dataset, model, lyr = cnn_lyr, subset_size_x = sub_size_x, subset_size_y = sub_size_y)
-#     print('cnn conv', cnn_lyr , 'ESR:', cnn_lyr_esr)
-#     cnn_record[cnn_lyr] = cnn_lyr_esr
-#     with open('./cnn_esr_record.pk', 'wb') as f:
-#         pickle.dump(cnn_record, f)
+cnn_record = {}
+for i in range(1, 6):
+    cnn_lyr = i
+    print('calculate cnn layer', cnn_lyr, 'ESR')
+    cnn_lyr_esr = cal_cnnlayer_esr(test_dataset, model, lyr = cnn_lyr, subset_size_x = sub_size_x, subset_size_y = sub_size_y)
+    print('cnn conv', cnn_lyr , 'ESR:', cnn_lyr_esr)
+    cnn_record[cnn_lyr] = cnn_lyr_esr
+    with open('./cnn_esr_record.pk', 'wb') as f:
+        pickle.dump(cnn_record, f)
 
-# # lyr = 1
-# # cnn_lyr_class_esr = cal_cnnlayer_esr(test_dataset, model, lyr = lyr, subset_size_x = sub_size_x, subset_size_y = sub_size_y, cal_class = True)
-# # print('cnn layer', lyr , 'class_esr:', cnn_lyr_class_esr)
-# cnn_class_record = {}
-# for i in range(1, 6):
-#     cnn_lyr = i
-#     print('calculate cnn layer', cnn_lyr, 'class ESR')
-#     cnn_lyr_class_esr = cal_cnnlayer_esr(test_dataset, model, lyr = cnn_lyr, subset_size_x = sub_size_x, subset_size_y = sub_size_y, cal_class = True)
-#     print('cnn conv', cnn_lyr , 'class ESR:', cnn_lyr_class_esr)
-#     cnn_class_record[cnn_lyr] = cnn_lyr_class_esr
-#     with open('./cnn_class_esr_record.pk', 'wb') as f:
-#         pickle.dump(cnn_class_record, f)
+# lyr = 1
+# cnn_lyr_class_esr = cal_cnnlayer_esr(test_dataset, model, lyr = lyr, subset_size_x = sub_size_x, subset_size_y = sub_size_y, cal_class = True)
+# print('cnn layer', lyr , 'class_esr:', cnn_lyr_class_esr)
+cnn_class_record = {}
+for i in range(1, 6):
+    cnn_lyr = i
+    print('calculate cnn layer', cnn_lyr, 'class ESR')
+    cnn_lyr_class_esr = cal_cnnlayer_esr(test_dataset, model, lyr = cnn_lyr, subset_size_x = sub_size_x, subset_size_y = sub_size_y, cal_class = True)
+    print('cnn conv', cnn_lyr , 'class ESR:', cnn_lyr_class_esr)
+    cnn_class_record[cnn_lyr] = cnn_lyr_class_esr
+    with open('./cnn_class_esr_record.pk', 'wb') as f:
+        pickle.dump(cnn_class_record, f)
 
 
-# dct_record = {}
-# for i in range(1, 64):
-#     dct_index = i
-#     print('calculate dct sf layer', dct_index)
-#     dct_esr = cal_dct_esr(test_dataset, model, dct_ind = dct_index, subset_size_x = sub_size_x, subset_size_y = sub_size_y)
-#     print('dct index', dct_index , 'ESR:', dct_esr)
-#     dct_record[dct_index] = dct_esr
-#     with open('./dct_esr_record.pk', 'wb') as f:
-#         pickle.dump(dct_record, f)
+dct_record = {}
+for i in range(1, 64):
+    dct_index = i
+    print('calculate dct sf layer', dct_index)
+    dct_esr = cal_dct_esr(test_dataset, model, dct_ind = dct_index, subset_size_x = sub_size_x, subset_size_y = sub_size_y)
+    print('dct index', dct_index , 'ESR:', dct_esr)
+    dct_record[dct_index] = dct_esr
+    with open('./dct_esr_record.pk', 'wb') as f:
+        pickle.dump(dct_record, f)
 
 dct_class_record = {}
 for i in range(1, 64):
