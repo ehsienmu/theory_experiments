@@ -139,9 +139,9 @@ def cal_dct_esr(dataset, model, dct_ind, eps = .3, subset_size_x = None, subset_
                     if torch.max(torch.abs(mod_y_output_dct - model(adv_img)[0, dct_ind])) == 0:
                         non_sep_count += 1
                         break
-    print('dataset_len:', dataset_len)
+    # print('dataset_len:', dataset_len)
     lyr_ESR = (dataset_len - non_sep_count) / dataset_len
-    print(f'ESR of layer {lyr} ', f' : esr = {lyr_ESR:.4f}' )
+    # print(f'ESR of dct[{dct_ind}]', f' : esr = {lyr_ESR:.4f}' )
     return lyr_ESR
 
 
