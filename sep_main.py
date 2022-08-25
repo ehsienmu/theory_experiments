@@ -40,7 +40,7 @@ model.load_state_dict(torch.load(model_path))
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model = model.to(device)
 
-sub_size_x = 10
+sub_size_x = 20
 sub_size_y = 1000
 
 # lyr = 1
