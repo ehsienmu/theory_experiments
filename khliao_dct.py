@@ -98,7 +98,7 @@ class block_dct(nn.Module):
         if dataset == 'Cifar10': self.height = int(96/8)
         elif dataset == 'ImageNet': self.height = int(256/8) 
         elif dataset == 'Flower102': self.height = int(320/8)  
-        elif dataset == 'MNIST': self.height = int(32/8)  
+        elif dataset == 'MNIST': self.height = int(32/8)   # add MNIST
 
 
     def forward(self, image):
@@ -111,7 +111,7 @@ class block_dct(nn.Module):
             B,dim,_,_ = image.size()
 
         img = (image*255).permute(0,2,3,1)
-
+        # change to 1d
         if(dim == 3):
             components = {'r': img[:,:,:,0], 'g': img[:,:,:,1], 'b': img[:,:,:,2]}
         else:
@@ -120,7 +120,7 @@ class block_dct(nn.Module):
         for k in components.keys():
             comp = self.layer(components[k])
             components[k] = comp
-
+        # change to 1d
         if(dim == 3):
             dct_coff = torch.stack((components['r'],components['g'],components['b']))
             dct_coff = torch.permute(dct_coff , (1,2,3,4,0)) 
