@@ -45,7 +45,7 @@ def cal_cnnlayer_var(dataset, model, lyr, subset_size_x = None, subset_size_y = 
         # print('permute_x.shape:', permute_x.size())
         var_x = torch.var(permute_x, axis = 1)
         # print('torch.var() size:', var_x.size()) # is axis = 1?
-        if !flatten:
+        if flatten == False:
             var_x = var_x.view(var_x.shape[0], x.shape[2], x.shape[3]).size()
     return var_x
 
@@ -86,7 +86,7 @@ def cal_dct_var(dataset, model, dct_ind, subset_size_x = None, subset_size_y = N
         var_x = torch.var(permute_x, axis = 1)
         # print('torch.var() size:', var_x.size()) # is axis = 1?
 
-        if !flatten:
+        if flatten == False:
             var_x = var_x.view(x.shape[1], x.shape[2]).size()
             # print((var_x.view(x.shape[1], x.shape[2]).size()))
     return var_x
